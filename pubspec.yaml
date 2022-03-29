@@ -1,0 +1,32 @@
+name: my_app
+description: A new Flutter project.
+# Flutter version 2.10.4
+# Date 29 Mart 2022
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.5
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^1.0.3
+  get_storage: ^2.0.3
+  grock: ^0.0.3+1
+  lottie: ^1.2.2
+  riverpod: ^1.0.3
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/
+    - assets/image/
+    - assets/lottie/
