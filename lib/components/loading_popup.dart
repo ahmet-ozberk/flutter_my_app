@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_app/assets.dart';
+import '../assets.dart';
 
 void LoadingPopup() {
   Grock.dialog(

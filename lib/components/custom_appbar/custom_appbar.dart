@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grock/grock.dart';
-import 'package:my_app/riverpod/riverpod_manager.dart';
-import 'package:my_app/view_controller/splash.dart';
+
+import '../../riverpod/riverpod_manager.dart';
+import '../../view_controller/splash.dart';
 
 class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
   final Size preferredSize;

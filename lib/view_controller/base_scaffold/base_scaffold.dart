@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_app/components/custom_appbar/custom_appbar.dart';
-import 'package:my_app/riverpod/riverpod_manager.dart';
+import '../../components/custom_appbar/custom_appbar.dart';
+import '../../riverpod/riverpod_manager.dart';
 
 class BaseScaffold extends ConsumerStatefulWidget {
   const BaseScaffold({Key? key}) : super(key: key);

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grock/grock.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_app/assets.dart';
+import '../assets.dart';
 
 import 'base_scaffold/base_scaffold.dart';
 import 'login/login.dart';

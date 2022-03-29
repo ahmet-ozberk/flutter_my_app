@@ -4,10 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grock/grock.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_app/components/text_input/button/button.dart';
-import 'package:my_app/view_controller/splash.dart';
+import 'view_controller/splash.dart';
 
 import 'assets.dart';
+import 'components/button/button.dart';
 
 void main() async {
   await GetStorage.init();

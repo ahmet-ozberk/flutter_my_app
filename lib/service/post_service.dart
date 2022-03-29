@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:my_app/components/text_input/logg.dart';
-import 'package:my_app/constant/cons.dart';
+import '../components/logg.dart';
+import '../constant/cons.dart';
 
 class Service<T> {
   final dio = Dio();

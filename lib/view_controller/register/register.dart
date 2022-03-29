@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:grock/grock.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_app/assets.dart';
-import 'package:my_app/components/text_input/button/button.dart';
-import 'package:my_app/components/text_input/text_input.dart';
-import 'package:my_app/constant/cons.dart';
-import 'package:my_app/riverpod/riverpod_manager.dart';
-import 'package:my_app/view_controller/login/login.dart';
+import '../../assets.dart';
+import '../../components/text_input/text_input.dart';
+import '../../constant/cons.dart';
+import '../../riverpod/riverpod_manager.dart';
+import '../login/login.dart';
+
+import '../../components/button/button.dart';
 
 class Register extends ConsumerWidget {
   const Register({Key? key}) : super(key: key);
