@@ -28,12 +28,11 @@ void main() async {
                 style: const TextStyle(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: Grock.height * 0.05),
-              Button(
-                text: "Geri Dön",
-                onPressed: () => Grock.back(),
-                bgColor: CupertinoColors.darkBackgroundGray,
-              ),
+              // Button(
+              //   text: "Geri Dön",
+              //   onPressed: () => Grock.back(),
+              //   bgColor: CupertinoColors.darkBackgroundGray,
+              // ),
             ],
           ),
         ),

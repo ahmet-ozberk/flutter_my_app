@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:grock/grock.dart';
 import '../../components/custom_appbar/custom_appbar.dart';
 import '../../riverpod/riverpod_manager.dart';
 
@@ -15,16 +16,16 @@ class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
   Widget build(BuildContext context) {
     var read = ref.read(baseScaffoldRiverpod);
     var watch = ref.watch(baseScaffoldRiverpod);
-    return Scaffold(
-      appBar: CustomAppBar(),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: watch.bottomBarTitleColor(),
-        items: read.items,
-        currentIndex: watch.currentIndex,
-        onTap: (index) => watch.setCurrentIndex(index),
-      ),
-      body: Center(
-        child: Text("BaseScaffold"),
+    return GrockKeyboardClose(
+      child: Scaffold(
+        appBar: CustomAppBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: watch.bottomBarTitleColor(),
+          items: read.items,
+          currentIndex: watch.currentIndex,
+          onTap: (index) => watch.setCurrentIndex(index),
+        ),
+        body: watch.body(),
       ),
     );
   }

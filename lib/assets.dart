@@ -15,4 +15,5 @@ class _AssetsLottie {
   final loginJSON = 'assets/lottie/login.json';
   final registerJSON = 'assets/lottie/register.json';
   final splashJSON = 'assets/lottie/splash.json';
+  final taskAddJSON = 'assets/lottie/task_add.json';
 }

@@ -1,16 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/view_controller/blog/blog.dart';
+import 'package:my_app/view_controller/flutter/flutter.dart';
+import 'package:my_app/view_controller/task/task.dart';
 
 class BaseScaffoldRiverpod extends ChangeNotifier {
   List<BottomNavigationBarItem> items = [
     const BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.text_quote), label: "blog",),
+      icon: Icon(CupertinoIcons.text_quote),
+      label: "blog",
+    ),
     const BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.doc_text_search), label: "task"),
     const BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.doc_text), label: "flutter"),
   ];
-  int currentIndex = 0;
+  int currentIndex = 1;
   void setCurrentIndex(int index) {
     currentIndex = index;
     notifyListeners();
@@ -26,6 +31,19 @@ class BaseScaffoldRiverpod extends ChangeNotifier {
         return "Flutter Notlar";
       default:
         return "";
+    }
+  }
+
+  Widget body() {
+    switch (currentIndex) {
+      case 0:
+        return Blog();
+      case 1:
+        return Task();
+      case 2:
+        return Flutter();
+      default:
+        return Task();
     }
   }
 
@@ -54,7 +72,8 @@ class BaseScaffoldRiverpod extends ChangeNotifier {
         return Colors.blue.withOpacity(0.1);
     }
   }
-    Color bottomBarTitleColor() {
+
+  Color bottomBarTitleColor() {
     switch (currentIndex) {
       case 0:
         return Colors.red;
