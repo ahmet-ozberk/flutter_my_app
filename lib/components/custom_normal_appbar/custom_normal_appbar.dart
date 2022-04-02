@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomNormalAppBar extends StatelessWidget with PreferredSizeWidget {
+  String title;
   @override
   final Size preferredSize;
 
-  CustomNormalAppBar({Key? key})
+  CustomNormalAppBar({required this.title,Key? key})
       : preferredSize = const Size.fromHeight(56.0),
         super(key: key);
 
@@ -14,7 +15,7 @@ class CustomNormalAppBar extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 0,
       title: Text(
-        'Task Oluştur',
+        title,
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               fontSize: 14,
             ),

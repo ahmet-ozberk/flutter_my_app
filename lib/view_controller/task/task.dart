@@ -91,6 +91,7 @@ class _TaskState extends ConsumerState<Task> {
     return Padding(
       padding: [15, 15, 15, 10].paddingLTRB,
       child: TextInput(
+        maxLines: 1,
         focusNode: ref.watch(taskRiverpod).focusNode,
         placeHolder: "Ara",
         controller: ref.read(taskRiverpod).searchController,
@@ -162,7 +163,6 @@ class _TaskState extends ConsumerState<Task> {
             isComplete: item.isComplete!,
             createdAt: item.createdAt!,
             onChanged: () => read.isComplete(item),
-            onTap: () => cardOnTap(item.title!),
           );
         },
         childCount: read.isNotCompleteSearch
@@ -202,7 +202,6 @@ class _TaskState extends ConsumerState<Task> {
             isComplete: item.isComplete!,
             createdAt: item.createdAt!,
             onChanged: () => read.isNotComplete(item),
-            onTap: () => cardOnTap(item.title!),
           );
         },
         childCount: read.isCompleteSearch
@@ -210,38 +209,6 @@ class _TaskState extends ConsumerState<Task> {
             : read.taskComplatedList.length,
       ),
     );
-  }
-
-  void cardOnTap(String title) {
-    showCupertinoModalPopup(
-        context: context,
-        builder: (context) {
-          return CupertinoActionSheet(
-            title: Text(
-              title,
-              style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                    color: Colors.black54,
-                    fontSize: 16,
-                  ),
-            ),
-            actions: [
-              CupertinoActionSheetAction(
-                child: Text(
-                  "Düzenle",
-                  style: TextStyle(fontSize: 15),
-                ),
-                onPressed: () {},
-              ),
-              CupertinoActionSheetAction(
-                child: Text(
-                  "Sil",
-                  style: TextStyle(fontSize: 15),
-                ),
-                onPressed: () {},
-              ),
-            ],
-          );
-        });
   }
 
   Widget taskButton({

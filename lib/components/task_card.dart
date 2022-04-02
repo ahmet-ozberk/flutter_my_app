@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
+import 'package:my_app/view_controller/task_add/task_add.dart';
 
 class TaskCard extends StatelessWidget {
   int id;
@@ -9,7 +10,6 @@ class TaskCard extends StatelessWidget {
   bool isComplete;
   String createdAt;
   Function onChanged;
-  Function onTap;
   TaskCard({
     Key? key,
     required this.id,
@@ -18,13 +18,19 @@ class TaskCard extends StatelessWidget {
     required this.isComplete,
     required this.createdAt,
     required this.onChanged,
-    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GrockContainer(
-      onTap: () => onTap(),
+      onTap: () {
+        Grock.to(TaskAdd(
+          id: id,
+          title: title,
+          description: description,
+          isEdit: true,
+        ));
+      },
       padding: 10.allP,
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,

@@ -49,6 +49,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Grock.navigationKey,
       scaffoldMessengerKey: Grock.snackbarMessengerKey,
+      scrollBehavior: const ScrollBehavior(
+          androidOverscrollIndicator: AndroidOverscrollIndicator.stretch),
       title: 'Benim Uygulamam',
       theme: ThemeData(
         primaryColor: CupertinoColors.activeBlue,

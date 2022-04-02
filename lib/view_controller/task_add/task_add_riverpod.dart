@@ -20,6 +20,67 @@ class TaskAddRiverpod extends ChangeNotifier {
     return true;
   }
 
+  void deleteTask({required int id}) {
+    LoadingPopup();
+    Service<IsCompleteModel>()
+        .post(
+            url: "delete",
+            fromJson: (json) => IsCompleteModel.fromJson(json),
+            data: {"id": id},
+            throwMessage: "Silme işleminde bir sorun oluştu.")
+        .then((value) {
+      Grock.back();
+      if (value!.status!) {
+        SuccessMessage(
+            title: "Başarılı",
+            description: value.message ?? "Silme işlemi başarılı.");
+        Future.delayed(const Duration(milliseconds: 2600), () {
+          Grock.toRemove(BaseScaffold());
+        });
+      } else {
+        ErrorMessage(
+            title: "Başarısız",
+            description:
+                "Silme işleminde bir sorun çıktı, lütfen tekrar deneyin.");
+      }
+    });
+  }
+
+  void updateTask({required int id}) {
+    if (isValid()) {
+      LoadingPopup();
+      Service<IsCompleteModel>()
+          .post(
+              url: "update",
+              data: {
+                "id": id,
+                "title": titleController.text,
+                "description": descriptionController.text,
+              },
+              fromJson: (json) => IsCompleteModel.fromJson(json),
+              throwMessage: "Oluşturulurken bir sorun oluştu.")
+          .then((value) {
+        Grock.back();
+        if (value!.status!) {
+          SuccessMessage(title: "Başarılı", description: "Task güncellendi.");
+          Future.delayed(const Duration(milliseconds: 2600), () {
+            Grock.toRemove(BaseScaffold());
+          });
+        } else {
+          ErrorMessage(
+              title: "Hata",
+              description: value.message ??
+                  "Güncellenirken bir sorun oluştu, tekrar deneyin.");
+        }
+      });
+    } else {
+      ErrorMessage(
+          title: "Hata",
+          description:
+              "Lütfen bilgileri en az 3 karakter olacak şekilde eksiksiz doldurun. ");
+    }
+  }
+
   void addTask() {
     if (isValid()) {
       LoadingPopup();

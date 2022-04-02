@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_app/components/waiting_view.dart';
 
 class Flutter extends ConsumerStatefulWidget {
   const Flutter({Key? key}) : super(key: key);
@@ -9,9 +10,8 @@ class Flutter extends ConsumerStatefulWidget {
 }
 
 class _BlogState extends ConsumerState<Flutter> {
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return WaitingView();
   }
 }

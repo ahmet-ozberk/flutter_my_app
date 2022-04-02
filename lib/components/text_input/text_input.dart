@@ -31,6 +31,19 @@ class TextInput extends StatelessWidget {
     return CupertinoTextField(
       focusNode: focusNode,
       controller: controller,
+      decoration: BoxDecoration(
+        color: const CupertinoDynamicColor.withBrightness(
+          color: CupertinoColors.white,
+          darkColor: CupertinoColors.black,
+        ),
+        border: Border(
+          top: borderSides,
+          bottom: borderSides,
+          left: borderSides,
+          right: borderSides,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+      ),
       padding: [10, 10].horizontalAndVerticalP,
       suffix: Padding(
         padding: suffixIcon == null ? 0.allP : 7.onlyRightP,
@@ -48,4 +61,12 @@ class TextInput extends StatelessWidget {
       maxLines: maxLines,
     );
   }
+
+  final BorderSide borderSides = const BorderSide(
+    color: CupertinoDynamicColor.withBrightness(
+      color: Color(0x33000000),
+      darkColor: Color(0x33FFFFFF),
+    ),
+    width: 0.0,
+  );
 }
